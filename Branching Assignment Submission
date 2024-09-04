@@ -1,0 +1,53 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Display the initial welcome message to the user
+        Console.WriteLine("Welcome to Package Express. Please follow the instructions below.");
+
+        // Prompt the user to enter the package weight
+        Console.Write("Please enter the package weight: ");
+        double packageWeight = Convert.ToDouble(Console.ReadLine());
+
+        // Check if the package weight exceeds 50
+        if (packageWeight > 50)
+        {
+            // If the package is too heavy, display an error message and end the program
+            Console.WriteLine("Package too heavy to be shipped via Package Express. Have a good day.");
+            return;
+        }
+
+        // Prompt the user to enter the package width
+        Console.Write("Please enter the package width: ");
+        double packageWidth = Convert.ToDouble(Console.ReadLine());
+
+        // Prompt the user to enter the package height
+        Console.Write("Please enter the package height: ");
+        double packageHeight = Convert.ToDouble(Console.ReadLine());
+
+        // Prompt the user to enter the package length
+        Console.Write("Please enter the package length: ");
+        double packageLength = Convert.ToDouble(Console.ReadLine());
+
+        // Calculate the total dimensions
+        double totalDimensions = packageWidth + packageHeight + packageLength;
+
+        // Check if the total dimensions exceed 50
+        if (totalDimensions > 50)
+        {
+            // If the package is too large, display an error message and end the program
+            Console.WriteLine("Package too big to be shipped via Package Express.");
+            return;
+        }
+
+        // Calculate the shipping quote
+        double dimensionProduct = packageWidth * packageHeight * packageLength; // Multiply the dimensions
+        double shippingQuote = (dimensionProduct * packageWeight) / 100; // Multiply by weight and divide by 100
+
+        // Display the calculated shipping quote as a dollar amount
+        Console.WriteLine("Your estimated total for shipping this package is: $" + shippingQuote.ToString("0.00"));
+        Console.WriteLine("Thank you!");
+    }
+}
